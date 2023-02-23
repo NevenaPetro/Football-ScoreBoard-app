@@ -1,15 +1,24 @@
-
+import { ApplicationProvider } from './context/ApplicationContext';
+import { useState } from 'react';
+import BoardList from './components/BoardList';
 import CreateNewGame from './components/CreateNewGame';
 
-import { ApplicationProvider } from './context/ApplicationContext';
-
 function App() {
-
-
+  const [listOfGames, setListOfGames] = useState([]);
+  
+  function addNewGame(newGame) {
+    setListOfGames([newGame, ...listOfGames]);
+  }
   return (
     <>
-    <ApplicationProvider>
-      <CreateNewGame />
+      <ApplicationProvider
+        value={{
+          addNewGame,
+          listOfGames,
+        }}
+      >
+        <CreateNewGame />
+        <BoardList />
       </ApplicationProvider>
     </>
   );

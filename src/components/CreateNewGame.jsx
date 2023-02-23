@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useContext } from 'react';
-import { ApplicationContext } from '../context/ApplicationContext';
+import { applicationContext } from '../context/ApplicationContext';
 import Button from '../components/Button';
 
 function CreateNewGame() {
@@ -11,7 +11,7 @@ function CreateNewGame() {
     const [btnFinishGameDisabled, setBtnFinishGameDisabled] = useState(true);
     const [btnGetSummaryDisabled, setBtnGetSummaryDisabled] = useState(true);
   
-    const { addNewGame } = useContext(ApplicationContext);
+    const { addNewGame } = useContext(applicationContext);
   
     function handleHomeTeamInput(e) {
       setHomeTeam(e.target.value);
