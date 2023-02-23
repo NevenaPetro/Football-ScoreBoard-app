@@ -1,11 +1,17 @@
 
+import CreateNewGame from './components/CreateNewGame';
+
+import { ApplicationProvider } from './context/ApplicationContext';
 
 function App() {
+
+
   return (
-    <div className="App">
-     <p>Hello</p>
-     <h3>Promena</h3>
-    </div>
+    <>
+    <ApplicationProvider>
+      <CreateNewGame />
+      </ApplicationProvider>
+    </>
   );
 }
 
