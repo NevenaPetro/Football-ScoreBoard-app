@@ -10,7 +10,7 @@ function BoardList() {
 
   return (
     <div>
-      <Button>Start game</Button>
+      
       <table>
         <tbody>
           {listOfGames &&

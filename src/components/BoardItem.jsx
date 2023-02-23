@@ -5,19 +5,21 @@ import Button from './Button';
 
 function BoardItem({ item }) {
   const { listOfGames } = useContext(applicationContext);
+  const [btnStartGameDisabled, setBtnStartGameDisabled] = useState(false);
+  const [btnUpdateScoreDisabled, setBtnUpdateScoreDisabled] = useState(true);
+  const [btnFinishGameDisabled, setBtnFinishGameDisabled] = useState(true);
   console.log(listOfGames);
   return (
     <>
-      <table>
-        <tr>
-          <td>{item.homeTeam}</td>
-          <td>{item.scoreHomeTeam} : </td>
-          <td>{item.scoreAwayTeam}</td>
-          <td>{item.awayTeam}</td>
-        </tr>
-      </table>
-
-      <Button>+</Button>
+    <tr>
+      <p>{item.homeTeam}</p>
+      <p>{item.scoreHomeTeam} : </p>
+      <p>{item.scoreAwayTeam}</p>
+      <p>{item.awayTeam}</p>
+      <Button isDisabled={btnStartGameDisabled}>Start Game</Button>
+      <Button isDisabled={btnUpdateScoreDisabled}>Update Score</Button>
+      <Button isDisabled={btnFinishGameDisabled}>Finish Game</Button>
+      </tr>
     </>
   );
 }

@@ -6,9 +6,6 @@ import Button from '../components/Button';
 function CreateNewGame() {
     const [homeTeam, setHomeTeam] = useState('');
     const [awayTeam, setAwayTeam] = useState('');
-    const [btnStartGameDisabled, setBtnStartGameDisabled] = useState(true);
-    const [btnUpdateGameDisabled, setBtnUpdateGameDisabled] = useState(true);
-    const [btnFinishGameDisabled, setBtnFinishGameDisabled] = useState(true);
     const [btnGetSummaryDisabled, setBtnGetSummaryDisabled] = useState(true);
   
     const { addNewGame } = useContext(applicationContext);
