@@ -8,7 +8,7 @@ function CreateNewGame() {
     const [awayTeam, setAwayTeam] = useState('');
     const [btnGetSummaryDisabled, setBtnGetSummaryDisabled] = useState(true);
   
-    const { addNewGame } = useContext(applicationContext);
+    const { addNewGame, gameId, setGameId } = useContext(applicationContext);
   
     function handleHomeTeamInput(e) {
       setHomeTeam(e.target.value);
@@ -19,7 +19,9 @@ function CreateNewGame() {
     function addGame(e) {
       e.preventDefault();
       if (homeTeam && awayTeam) {
+        setGameId(gameId+1)
         const newGame = {
+          gameId,
           homeTeam,
           awayTeam,
           scoreHomeTeam: 0,

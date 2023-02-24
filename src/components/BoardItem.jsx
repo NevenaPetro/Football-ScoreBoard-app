@@ -4,21 +4,43 @@ import { applicationContext } from '../context/ApplicationContext';
 import Button from './Button';
 
 function BoardItem({ item }) {
-  const { listOfGames } = useContext(applicationContext);
-  const [btnStartGameDisabled, setBtnStartGameDisabled] = useState(false);
-  const [btnUpdateScoreDisabled, setBtnUpdateScoreDisabled] = useState(true);
-  const [btnFinishGameDisabled, setBtnFinishGameDisabled] = useState(true);
-  console.log(listOfGames);
+  const {
+    gameStarting,
+    btnStartGameDisabled,
+    btnUpdateScoreDisabled,
+    btnFinishGameDisabled,
+  } = useContext(applicationContext);
+
   return (
     <>
-    <tr>
-      <p>{item.homeTeam}</p>
-      <p>{item.scoreHomeTeam} : </p>
-      <p>{item.scoreAwayTeam}</p>
-      <p>{item.awayTeam}</p>
-      <Button isDisabled={btnStartGameDisabled}>Start Game</Button>
-      <Button isDisabled={btnUpdateScoreDisabled}>Update Score</Button>
-      <Button isDisabled={btnFinishGameDisabled}>Finish Game</Button>
+      <tr>
+        <td>{item.gameId}</td>
+        <td>{item.homeTeam}</td>
+        <td>{item.scoreHomeTeam} : </td>
+        <td>{item.scoreAwayTeam}</td>
+        <td>{item.awayTeam}</td>
+        <td>
+          <Button
+            type={'button'}
+            handleClick={() => {
+              gameStarting(item);
+            }}
+            id={item.gameId}
+            isDisabled={btnStartGameDisabled}
+          >
+            Start Game
+          </Button>
+        </td>
+        <td>
+          <Button id={item.gameId} isDisabled={btnUpdateScoreDisabled}>
+            Update Score
+          </Button>
+        </td>
+        <td>
+          <Button id={item.gameId} isDisabled={btnFinishGameDisabled}>
+            Finish Game
+          </Button>
+        </td>
       </tr>
     </>
   );
