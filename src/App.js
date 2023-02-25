@@ -6,25 +6,26 @@ import CreateNewGame from './components/CreateNewGame';
 function App() {
   const [listOfGames, setListOfGames] = useState([]);
   const [gameId, setGameId] = useState(1);
-  
-  const [btnUpdateScoreDisabled, setBtnUpdateScoreDisabled] = useState(true);
-  const [btnFinishGameDisabled, setBtnFinishGameDisabled] = useState(true);
-  const [startGame, setStartGame] = useState({
-    game: {},
-    start: false
-  })
-  
+  const [startGame, setStartGame] = useState({});
+
   function addNewGame(newGame) {
     setListOfGames([...listOfGames, newGame]);
   }
   function gameStarting(item) {
-    setStartGame({
-      item,
-      start: true
-    })
-    //setBtnUpdateScoreDisabled(listOfGames.filter((item) => item.gameId === gameId));
-    //setBtnFinishGameDisabled(listOfGames.filter((item) => item.gameId === gameId));
+    setStartGame(item);
+    listOfGames.filter(
+      (e) => e.btnUpdateId === item.gameId
+    )[0].btnUpdateDisabled = false;
+    listOfGames.filter(
+      (e) => e.btnFinishId === item.gameId
+    )[0].btnFinishDisabled = false;
   }
+ /* function gameUpdating(item) {
+
+  }
+  function gameFinishing(item) {
+    
+  }*/
   return (
     <>
       <ApplicationProvider
@@ -33,10 +34,7 @@ function App() {
           listOfGames,
           setGameId,
           gameId,
-          gameStarting,
-          
-          btnUpdateScoreDisabled,
-          btnFinishGameDisabled,
+          gameStarting
         }}
       >
         <CreateNewGame />

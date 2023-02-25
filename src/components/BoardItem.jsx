@@ -6,9 +6,7 @@ import Button from './Button';
 function BoardItem({ item }) {
   const {
     gameStarting,
-    btnStartGameDisabled,
-    btnUpdateScoreDisabled,
-    btnFinishGameDisabled,
+    btnStartGameDisabled
   } = useContext(applicationContext);
 
   return (
@@ -25,19 +23,19 @@ function BoardItem({ item }) {
             handleClick={() => {
               gameStarting(item);
             }}
-            id={item.gameId}
+            btnId={item.gameId}
             isDisabled={btnStartGameDisabled}
           >
             Start Game
           </Button>
         </td>
         <td>
-          <Button id={item.gameId} isDisabled={btnUpdateScoreDisabled}>
+          <Button btnId={item.gameId} isDisabled={item.btnUpdateDisabled}>
             Update Score
           </Button>
         </td>
         <td>
-          <Button id={item.gameId} isDisabled={btnFinishGameDisabled}>
+          <Button btnId={item.gameId} isDisabled={item.btnFinishDisabled}>
             Finish Game
           </Button>
         </td>

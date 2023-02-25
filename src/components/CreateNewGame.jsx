@@ -26,6 +26,10 @@ function CreateNewGame() {
           awayTeam,
           scoreHomeTeam: 0,
           scoreAwayTeam: 0,
+          btnUpdateId: gameId,
+          btnUpdateDisabled: true,
+          btnFinishId: gameId,
+          btnFinishDisabled: true
         };
         addNewGame(newGame);
       }
