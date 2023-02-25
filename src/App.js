@@ -5,12 +5,16 @@ import CreateNewGame from './components/CreateNewGame';
 
 function App() {
   const [listOfGames, setListOfGames] = useState([]);
+  const [listOfAllGames, setListOfAllGames] = useState([]);
   const [gameId, setGameId] = useState(1);
   const [startGame, setStartGame] = useState({});
 
+  //adding new game to the listOfGames
   function addNewGame(newGame) {
     setListOfGames([...listOfGames, newGame]);
+    setListOfAllGames([...listOfAllGames, newGame]);
   }
+  //Strating game and setting enabling btnUpdate and btnFinish
   function gameStarting(item) {
     setStartGame(item);
     listOfGames.filter(
@@ -20,9 +24,13 @@ function App() {
       (e) => e.btnFinishId === item.gameId
     )[0].btnFinishDisabled = false;
   }
- /* function gameUpdating(item) {
-
+  //Finish game and removing game from the board
+  function gameFinish(item) {
+    setListOfGames(listOfGames.filter(
+      (e) => e.gameId !== item.gameId
+    ))
   }
+  /*
   function gameFinishing(item) {
     
   }*/
@@ -34,7 +42,8 @@ function App() {
           listOfGames,
           setGameId,
           gameId,
-          gameStarting
+          gameStarting,
+          gameFinish
         }}
       >
         <CreateNewGame />

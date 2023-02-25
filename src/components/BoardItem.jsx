@@ -1,13 +1,10 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { applicationContext } from '../context/ApplicationContext';
 import Button from './Button';
 
 function BoardItem({ item }) {
-  const {
-    gameStarting,
-    btnStartGameDisabled
-  } = useContext(applicationContext);
+  const { gameStarting, gameFinish, btnStartGameDisabled } = useContext(applicationContext);
 
   return (
     <>
@@ -30,12 +27,20 @@ function BoardItem({ item }) {
           </Button>
         </td>
         <td>
-          <Button btnId={item.gameId} isDisabled={item.btnUpdateDisabled}>
+          <Button
+            
+            btnId={item.gameId}
+            isDisabled={item.btnUpdateDisabled}
+          >
             Update Score
           </Button>
         </td>
         <td>
-          <Button btnId={item.gameId} isDisabled={item.btnFinishDisabled}>
+          <Button type={'button'}
+            handleClick={() => {
+              gameFinish(item);
+            }}
+            btnId={item.gameId} isDisabled={item.btnFinishDisabled}>
             Finish Game
           </Button>
         </td>
