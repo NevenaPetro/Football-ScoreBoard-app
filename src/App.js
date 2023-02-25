@@ -18,11 +18,9 @@ function App() {
   function gameStarting(item) {
     setStartGame(item);
     listOfGames.filter(
-      (e) => e.btnUpdateId === item.gameId
-    )[0].btnUpdateDisabled = false;
-    listOfGames.filter(
-      (e) => e.btnFinishId === item.gameId
-    )[0].btnFinishDisabled = false;
+      (e) => e.gameId === item.gameId
+    )[0].started = true;
+
   }
   //Finish game and removing game from the board
   function gameFinish(item) {
@@ -30,10 +28,10 @@ function App() {
       (e) => e.gameId !== item.gameId
     ))
   }
-  /*
-  function gameFinishing(item) {
+  
+  function gameUpdate(item) {
     
-  }*/
+  }
   return (
     <>
       <ApplicationProvider
@@ -43,7 +41,8 @@ function App() {
           setGameId,
           gameId,
           gameStarting,
-          gameFinish
+          gameFinish,
+          gameUpdate
         }}
       >
         <CreateNewGame />

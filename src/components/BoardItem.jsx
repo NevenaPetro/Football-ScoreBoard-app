@@ -4,12 +4,12 @@ import { applicationContext } from '../context/ApplicationContext';
 import Button from './Button';
 
 function BoardItem({ item }) {
-  const { gameStarting, gameFinish, btnStartGameDisabled } = useContext(applicationContext);
+  const { gameStarting, gameFinish, gameUpdate, btnStartGameDisabled } =
+    useContext(applicationContext);
 
   return (
     <>
       <tr>
-        <td>{item.gameId}</td>
         <td>{item.homeTeam}</td>
         <td>{item.scoreHomeTeam} : </td>
         <td>{item.scoreAwayTeam}</td>
@@ -21,26 +21,32 @@ function BoardItem({ item }) {
               gameStarting(item);
             }}
             btnId={item.gameId}
-            isDisabled={btnStartGameDisabled}
+            isDisabled={item.started}
           >
             Start Game
           </Button>
         </td>
         <td>
           <Button
-            
+            type={'button'}
+            handleClick={() => {
+              gameUpdate(item);
+            }}
             btnId={item.gameId}
-            isDisabled={item.btnUpdateDisabled}
+            isDisabled={!item.started}
           >
             Update Score
           </Button>
         </td>
         <td>
-          <Button type={'button'}
+          <Button
+            type={'button'}
             handleClick={() => {
               gameFinish(item);
             }}
-            btnId={item.gameId} isDisabled={item.btnFinishDisabled}>
+            btnId={item.gameId}
+            isDisabled={!item.started}
+          >
             Finish Game
           </Button>
         </td>
