@@ -4,7 +4,7 @@ import { applicationContext } from '../context/ApplicationContext';
 import Button from './Button';
 
 function BoardItem({ item }) {
-  const { gameStarting, gameFinish, gameUpdate, btnStartGameDisabled } =
+  const { gameStarting, gameFinish, openModal } =
     useContext(applicationContext);
 
   return (
@@ -30,7 +30,7 @@ function BoardItem({ item }) {
           <Button
             type={'button'}
             handleClick={() => {
-              gameUpdate(item);
+              openModal(item);
             }}
             btnId={item.gameId}
             isDisabled={!item.started}

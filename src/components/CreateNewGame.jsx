@@ -4,12 +4,12 @@ import { applicationContext } from '../context/ApplicationContext';
 import Button from '../components/Button';
 
 function CreateNewGame() {
+  
     const [homeTeam, setHomeTeam] = useState('');
     const [awayTeam, setAwayTeam] = useState('');
     const [btnGetSummaryDisabled, setBtnGetSummaryDisabled] = useState(true);
   
     const { addNewGame, gameId, setGameId } = useContext(applicationContext);
-  
     function handleHomeTeamInput(e) {
       setHomeTeam(e.target.value);
     }
