@@ -4,6 +4,7 @@ import BoardList from './components/BoardList';
 import CreateNewGame from './components/CreateNewGame';
 import Modal from './components/Modal/Modal';
 
+
 function App() {
   const [listOfGames, setListOfGames] = useState([]);
   const [listOfAllGames, setListOfAllGames] = useState([]);
@@ -42,17 +43,12 @@ function App() {
       newScoreHomeTeam + newScoreAwayTeam;
     setListOfAllGames(listOfAllGames);
   }
-
   function openModal(item) {
     setModalData(item);
   }
-
   function getSummary() {
-    console.log(listOfAllGames);
-    console.log(
-      listOfAllGames[0].scoreHomeTeam + listOfAllGames[0].scoreAwayTeam
-    );
-    setListOfAllGames(listOfAllGames.sort((a, b) => b.scoreSum - a.scoreSum));
+    listOfAllGames.sort((a, b) => b.gameId - a.gameId)
+    setListOfAllGames([...listOfAllGames.sort((a, b) => b.scoreSum - a.scoreSum)]);
   }
 
   return (

@@ -2,11 +2,13 @@ import React from 'react';
 import Button from '../Button';
 import { useContext } from 'react';
 import { applicationContext } from '../../context/ApplicationContext';
+import '../Modal/modal.css'
+<Modal />
 
 function Modal({ data }) {
   const { scoreUpdate, setModalData } = useContext(applicationContext);
-  let newHomeTeamScore;
-  let newAwayTeamScore;
+  let newHomeTeamScore=data.scoreHomeTeam;
+  let newAwayTeamScore=data.scoreAwayTeam;
   function gameUpdate(e) {
     e.preventDefault();
     scoreUpdate(data.gameId, newHomeTeamScore, newAwayTeamScore);
@@ -21,8 +23,24 @@ function Modal({ data }) {
 
   return (
     <>
+    <div
+        className="modal-bg"
+        onClick={() => {
+          setModalData(null);
+        }}>
+          <div
+          className="modal"
+          onClick={(event) => {
+            event.stopPropagation();
+          }}
+        >
+      <Button className={'close-btn'} type={'button'} handleClick={() => setModalData(null)}>
+        X
+      </Button>
+      <br></br>
+      <br></br>
       <form onSubmit={gameUpdate}>
-        <p>{data.homeTeam}</p>
+        <span>{data.homeTeam}</span>
         <input
           type="text"
           placeholder={data.scoreHomeTeam}
@@ -33,9 +51,14 @@ function Modal({ data }) {
           placeholder={data.scoreAwayTeam}
           onChange={handleAwayInputChange}
         ></input>
-        <p>{data.awayTeam}</p>
+        <span>{data.awayTeam}</span>
+        <br></br>
+        <br></br>
+        <br></br>
         <Button type="submit">Update</Button>
       </form>
+      </div>
+      </div>
     </>
   );
 }

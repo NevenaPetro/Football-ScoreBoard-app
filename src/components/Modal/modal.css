@@ -1,0 +1,25 @@
+.modal-bg {
+    position: fixed;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    margin: 5%;
+    background-color: rgb(255,255,255);
+    position: fixed; 
+    padding: 5%;
+    width: 40%;
+    min-height: 10%;
+    display: flex;
+    justify-content: center;
+  }
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
