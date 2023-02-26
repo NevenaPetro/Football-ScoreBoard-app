@@ -11,15 +11,11 @@ February 2023
 
 This app was built using the following technologies:
 
-HTML
-CSS
-JavaScript
-React.js
+HTML, CSS, JavaScript, React.js
 
 ## Getting started
 
-npm install
-npm start
+npm install, npm start
 
 ## How to Use the Application
 
