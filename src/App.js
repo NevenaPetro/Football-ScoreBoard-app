@@ -20,7 +20,10 @@ function App() {
   //Strating game and setting enabling btnUpdate and btnFinish
   function gameStarting(item) {
     setStartGame(item);
-    listOfGames.filter((e) => e.gameId === item.gameId)[0].started = true;
+    listOfGames.find((e) => e.gameId === item.gameId).started = true;
+    setListOfGames(listOfGames);
+    listOfAllGames.find((e) => e.gameId === item.gameId).started = true;
+    setListOfAllGames(listOfAllGames);
   }
   //Finish game and removing game from the board
   function gameFinish(item) {
@@ -42,6 +45,7 @@ function App() {
         value={{
           addNewGame,
           listOfGames,
+          listOfAllGames,
           setGameId,
           gameId,
           gameStarting,
