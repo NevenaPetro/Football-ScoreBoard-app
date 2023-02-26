@@ -36,12 +36,12 @@ function App() {
     listOfGames.find((e) => e.gameId === id).scoreAwayTeam = newScoreAwayTeam;
     listOfGames.find((e) => e.gameId === id).scoreSum =
       newScoreHomeTeam + newScoreAwayTeam;
-    setListOfGames(listOfGames);
+    setListOfGames([...listOfGames]);
     listOfAllGames.find((e) => e.gameId === id).scoreHomeTeam = newScoreHomeTeam;
     listOfAllGames.find((e) => e.gameId === id).scoreAwayTeam = newScoreAwayTeam;
     listOfAllGames.find((e) => e.gameId === id).scoreSum =
       newScoreHomeTeam + newScoreAwayTeam;
-    setListOfAllGames(listOfAllGames);
+    setListOfAllGames([...listOfAllGames]);
   }
   function openModal(item) {
     setModalData(item);
