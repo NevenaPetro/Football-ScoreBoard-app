@@ -53,18 +53,21 @@ function Modal({ data }) {
           <br></br>
           <br></br>
           <form onSubmit={gameUpdate}>
-            <span>{data.homeTeam}</span>
+            <span>{data.homeTeam}    </span>
             <input
               type="text"
               placeholder={data.scoreHomeTeam}
               onChange={handleHomeInputChange}
+              className='input-update'
             ></input>
+            <span> : </span>
             <input
               type="text"
               placeholder={data.scoreAwayTeam}
               onChange={handleAwayInputChange}
+              className='input-update'
             ></input>
-            <span>{data.awayTeam}</span>
+            <span>    {data.awayTeam}</span>
             <br></br>
             {message && <p>{message}</p>}
             <br></br>
