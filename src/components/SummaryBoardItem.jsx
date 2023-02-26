@@ -1,7 +1,5 @@
 import React from 'react';
-import { useContext } from 'react';
-import { applicationContext } from '../context/ApplicationContext';
-import Button from './Button';
+
 
 function SummaryBoardItem({ item }) {
 

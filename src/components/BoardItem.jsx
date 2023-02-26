@@ -10,6 +10,7 @@ function BoardItem({ item }) {
   return (
     <>
       <tr>
+        <td>{item.gameId}</td>
         <td>{item.homeTeam}</td>
         <td>{item.scoreHomeTeam} : </td>
         <td>{item.scoreAwayTeam}</td>

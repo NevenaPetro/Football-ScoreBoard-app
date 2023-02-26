@@ -13,18 +13,26 @@ function Modal({ data }) {
     setModalData(null);
   }
   function handleHomeInputChange(e) {
-    newHomeTeamScore=+e.target.value;
+    newHomeTeamScore = +e.target.value;
   }
   function handleAwayInputChange(e) {
-    newAwayTeamScore=+e.target.value;
+    newAwayTeamScore = +e.target.value;
   }
 
   return (
     <>
       <form onSubmit={gameUpdate}>
         <p>{data.homeTeam}</p>
-        <input type="text" placeholder={data.scoreHomeTeam} onChange={handleHomeInputChange}></input>
-        <input type="text" placeholder={data.scoreAwayTeam} onChange={handleAwayInputChange}></input>
+        <input
+          type="text"
+          placeholder={data.scoreHomeTeam}
+          onChange={handleHomeInputChange}
+        ></input>
+        <input
+          type="text"
+          placeholder={data.scoreAwayTeam}
+          onChange={handleAwayInputChange}
+        ></input>
         <p>{data.awayTeam}</p>
         <Button type="submit">Update</Button>
       </form>
