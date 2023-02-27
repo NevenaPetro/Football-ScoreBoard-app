@@ -10,18 +10,24 @@ function Modal({ data }) {
   const [message, setMessage] = useState(null);
   let newHomeTeamScore = data.scoreHomeTeam;
   let newAwayTeamScore = data.scoreAwayTeam;
+
+  //Modal form submitting
   function gameUpdate(e) {
     e.preventDefault();
     (newHomeTeamScore || newAwayTeamScore) &&
     scoreUpdate(data.gameId, newHomeTeamScore, newAwayTeamScore);
     setModalData(null);
   }
+
+  //handle home team input field (modal)
   function handleHomeInputChange(e) {
     setMessage(null);
     if (isNaN(e.target.value)) {
       setMessage('Please, enter number.');
     } else newHomeTeamScore = +e.target.value;
   }
+
+//handle away team input field (modal)
   function handleAwayInputChange(e) {
     setMessage(null);
     if (isNaN(e.target.value)) {

@@ -4,7 +4,6 @@ import BoardList from './components/BoardList';
 import CreateNewGame from './components/CreateNewGame';
 import Modal from './components/Modal/Modal';
 
-
 function App() {
   const [listOfGames, setListOfGames] = useState([]);
   const [listOfAllGames, setListOfAllGames] = useState([]);
@@ -12,13 +11,13 @@ function App() {
   const [startGame, setStartGame] = useState({});
   const [modalData, setModalData] = useState(null);
 
-  //adding new game to the listOfGames
+  //adding new game to the listOfGames and listOfAllGames
   function addNewGame(newGame) {
     setListOfGames([...listOfGames, newGame]);
     setListOfAllGames([...listOfAllGames, newGame]);
   }
 
-  //Strating game and setting enabling btnUpdate and btnFinish
+  //Strating game and setting enabling 'Update score'  and 'Finish game' buttons
   function gameStarting(item) {
     setStartGame(item);
     listOfGames.find((e) => e.gameId === item.gameId).started = true;
@@ -26,29 +25,37 @@ function App() {
     listOfAllGames.find((e) => e.gameId === item.gameId).started = true;
     setListOfAllGames(listOfAllGames);
   }
-  //Finish game and removing game from the board
+
+  //Finish game and removing game from the first table (listOfGames)
   function gameFinish(item) {
     setListOfGames(listOfGames.filter((e) => e.gameId !== item.gameId));
   }
-
+  
+  // Updating the score game
   function scoreUpdate(id, newScoreHomeTeam, newScoreAwayTeam) {
     listOfGames.find((e) => e.gameId === id).scoreHomeTeam = newScoreHomeTeam;
     listOfGames.find((e) => e.gameId === id).scoreAwayTeam = newScoreAwayTeam;
     listOfGames.find((e) => e.gameId === id).scoreSum =
       newScoreHomeTeam + newScoreAwayTeam;
     setListOfGames([...listOfGames]);
-    listOfAllGames.find((e) => e.gameId === id).scoreHomeTeam = newScoreHomeTeam;
-    listOfAllGames.find((e) => e.gameId === id).scoreAwayTeam = newScoreAwayTeam;
+    listOfAllGames.find((e) => e.gameId === id).scoreHomeTeam =
+      newScoreHomeTeam;
+    listOfAllGames.find((e) => e.gameId === id).scoreAwayTeam =
+      newScoreAwayTeam;
     listOfAllGames.find((e) => e.gameId === id).scoreSum =
       newScoreHomeTeam + newScoreAwayTeam;
     setListOfAllGames([...listOfAllGames]);
   }
+
   function openModal(item) {
     setModalData(item);
   }
+
   function getSummary() {
-    listOfAllGames.sort((a, b) => b.gameId - a.gameId)
-    setListOfAllGames([...listOfAllGames.sort((a, b) => b.scoreSum - a.scoreSum)]);
+    listOfAllGames.sort((a, b) => b.gameId - a.gameId);
+    setListOfAllGames([
+      ...listOfAllGames.sort((a, b) => b.scoreSum - a.scoreSum),
+    ]);
   }
 
   return (

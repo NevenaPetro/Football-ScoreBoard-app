@@ -6,15 +6,17 @@ import Button from '../components/Button';
 function CreateNewGame() {
   const [homeTeam, setHomeTeam] = useState('');
   const [awayTeam, setAwayTeam] = useState('');
-
   const { addNewGame, gameId, setGameId, listOfAllGames, getSummary } =
     useContext(applicationContext);
+
   function handleHomeTeamInput(e) {
     setHomeTeam(e.target.value);
   }
   function handleAwayTeamInput(e) {
     setAwayTeam(e.target.value);
   }
+  
+  // form submitting
   function addGame(e) {
     e.preventDefault();
     if (homeTeam && awayTeam) {
