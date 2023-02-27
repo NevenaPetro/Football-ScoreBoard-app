@@ -15,7 +15,7 @@ HTML, CSS, JavaScript, React.js
 
 ## Getting started
 
-npm install, npm start, branch main
+branch main, npm install, npm start
 
 ## How to Use the Application
 
