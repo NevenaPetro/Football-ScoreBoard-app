@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Football-ScoreBoard-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application allows users to add a new game, input the teams playing, start the game, update the score, and finish the game. The application then displays the summary of all games played by total score.
 
-## Available Scripts
+## Created by
 
-In the project directory, you can run:
+Nevena Petrović
+February 2023
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This app was built using the following technologies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+HTML, CSS, JavaScript, React.js
 
-### `npm test`
+## Getting started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm install, npm start, branch main
 
-### `npm run build`
+## How to Use the Application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Enter the team names in the input fields and pres 'Add Game' button.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. The first table will show the id of a game, team names, default score (0 : 0), and buttons 'Start Game', 'Update score', and 'Finish game'.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. The second table is Score Board which shows only team names and the score of every game (playing and/or finished).
 
-### `npm run eject`
+4. Buttons 'Update score' and 'Finish game' are enabled when the button 'Start Game' is clicked.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Clicking on the button 'Update score' will open a modal with input fields to type a new score. If one of the input fields wasn't changed it will use the latest score of that team. If a user enters a string instead of a number there will be a message: 'Please, enter a number.'. The message will disappear when reentering the number. A user can close the modal by clicking on the button 'X' or the grey surface around the modal.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. Button 'Finish game' will delete a game from the first table, but it will stay in the Score Board table.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. Button 'Get Summary' is enabled when there is at least one game playing. Clicking on that button will sort the Score Board table of games by total score ( Those games with the same total score will be returned ordered by the most recently added).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
